@@ -11,14 +11,17 @@ body{
   justify-content: center;
   height: 100vh;
   color: #ededed;
-  background-image: url(../public/black-stone-bg.jpg);
+  background-image: url(../public/aurora-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container{
-  height: 90vh;
-  width: 90vw;
+  display: flex;
+  height: 80vh;
+  width: 80vw;
   border-radius: 15px;
-  border: 1px solid #000;
-  backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, .2);
+  border: 1px solid #1d213f;
+  backdrop-filter: blur(20px);
+  background: rgba(29, 33, 63, .6);
 }

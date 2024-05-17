@@ -1,13 +1,13 @@
 import Detail from "./components/detail/Detail";
-import Form from "./components/form/Form";
+import Chat from "./components/chat/Chat";
 import List from "./components/list/List";
 import "./index.css";
 
 const App = () => {
   return (
-    <div className='container'>
+    <div className="container">
       <Detail/>
-      <Form/>
+      <Chat/>
       <List/>
     </div>
   )

@@ -1,7 +1,13 @@
+import "./components/detail/Detail";
+import "./components/form/Form";
+import "./components/list/List";
+
 const App = () => {
-    return (
-      <div className=''>App</div>
-    )
-  }
+  return (
+    <div className='container'>
+      
+    </div>
+  )
+}
   
-  export default App
+export default App

@@ -6,9 +6,9 @@ import "./index.css";
 const App = () => {
   return (
     <div className="container">
-      <Detail/>
-      <Chat/>
       <List/>
+      <Chat/>
+      <Detail/>
     </div>
   )
 }

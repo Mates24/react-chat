@@ -55,7 +55,6 @@
         .texts{
             display: flex;
             flex-direction: column;
-            gap: 10px;
 
             span{
                 font-weight: 500;

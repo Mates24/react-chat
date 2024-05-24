@@ -86,7 +86,7 @@
             cursor: pointer;
 
             &:hover{
-                background-color: rgba(230, 74, 105, 0.796);
+                background-color: rgba(230, 74, 105, 1);
             }
             &.logOut{
                 padding: 10px;

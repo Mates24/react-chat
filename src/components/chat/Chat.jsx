@@ -36,9 +36,7 @@ const Chat = () => {
             <div className="message own">
                     <div className="texts">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Debitis, corporis perferendis similique eveniet enim fugit 
-                            nulla reprehenderit assumenda voluptatibus nisi quasi tempora 
-                            modi velit officia molestias veniam.</p>
+                            Debitis, corporis perferendis</p>
                         <span>1 min ago</span>
                     </div>
                 </div>
@@ -46,18 +44,14 @@ const Chat = () => {
                     <img src="../../images/avatar.png" alt="" />
                     <div className="texts">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Debitis, corporis perferendis similique eveniet enim fugit 
-                            nulla reprehenderit assumenda voluptatibus nisi quasi tempora 
-                            modi velit officia molestias veniam.</p>
+                            Debitis, corporis perferendis</p>
                         <span>1 min ago</span>
                     </div>
                 </div>
                 <div className="message own">
                     <div className="texts">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Debitis, corporis perferendis similique eveniet enim fugit 
-                            nulla reprehenderit assumenda voluptatibus nisi quasi tempora 
-                            modi velit officia molestias veniam.</p>
+                            Debitis, corporis perferendis</p>
                         <span>1 min ago</span>
                     </div>
                 </div>
@@ -65,9 +59,7 @@ const Chat = () => {
                     <img src="../../images/avatar.png" alt="" />
                     <div className="texts">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Debitis, corporis perferendis similique eveniet enim fugit 
-                            nulla reprehenderit assumenda voluptatibus nisi quasi tempora 
-                            modi velit officia molestias veniam.</p>
+                            Debitis, corporis perferendis</p>
                         <span>1 min ago</span>
                     </div>
                 </div>

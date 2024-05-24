@@ -27,7 +27,46 @@ const Chat = () => {
                     <img src="../../images/info.png" alt="" />
                 </div>
             </div>
-            <div className="center"></div>
+            <div className="center">
+            <div className="message own">
+                    <div className="texts">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Debitis, corporis perferendis similique eveniet enim fugit 
+                            nulla reprehenderit assumenda voluptatibus nisi quasi tempora 
+                            modi velit officia molestias veniam.</p>
+                        <span>1 min ago</span>
+                    </div>
+                </div>
+                <div className="message">
+                    <img src="../../images/avatar.png" alt="" />
+                    <div className="texts">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Debitis, corporis perferendis similique eveniet enim fugit 
+                            nulla reprehenderit assumenda voluptatibus nisi quasi tempora 
+                            modi velit officia molestias veniam.</p>
+                        <span>1 min ago</span>
+                    </div>
+                </div>
+                <div className="message own">
+                    <div className="texts">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Debitis, corporis perferendis similique eveniet enim fugit 
+                            nulla reprehenderit assumenda voluptatibus nisi quasi tempora 
+                            modi velit officia molestias veniam.</p>
+                        <span>1 min ago</span>
+                    </div>
+                </div>
+                <div className="message">
+                    <img src="../../images/avatar.png" alt="" />
+                    <div className="texts">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Debitis, corporis perferendis similique eveniet enim fugit 
+                            nulla reprehenderit assumenda voluptatibus nisi quasi tempora 
+                            modi velit officia molestias veniam.</p>
+                        <span>1 min ago</span>
+                    </div>
+                </div>
+            </div>
             <div className="bottom">
                 <div className="icons">
                     <img src="../../images/img.png" alt="" />

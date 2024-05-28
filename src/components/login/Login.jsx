@@ -4,6 +4,7 @@ import "./login.css";
 import { pocketbase } from "../../lib/server";
 
 const Login = ({ onLogin }) => {
+    
     try{
         pocketbase.authStore.loadFromCookie(window.localStorage.getItem("auth"));
         if(pocketbase.authStore.isValid) onLogin();

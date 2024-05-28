@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import PocketBase from "pocketbase";
 import "./login.css";
+import { pocketbase } from "../../lib/server";
 
-const Login = () => {
-    const pb = new PocketBase('http://127.0.0.1:8090');
+const Login = ({ onLogin }) => {
+    try{
+        pocketbase.authStore.loadFromCookie(window.localStorage.getItem("auth"));
+        if(pocketbase.authStore.isValid) onLogin();
+    }catch(e){
+        console.log(e);
+    }
 
     const [avatar, setAvatar] = useState({
         file: null,
@@ -37,8 +42,8 @@ const Login = () => {
         }
 
         try{
-            const record = await pb.collection('users').create(data);
-            await pb.collection('userChats').create(userChatsData);
+            const record = await pocketbase.collection('users').create(data);
+            await pocketbase.collection('userChats').create(userChatsData);
 
             toast.success("Registrácia bola úspešná!");
         }catch(err){
@@ -47,11 +52,21 @@ const Login = () => {
         }
     };
 
-    const handleLogin = e => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        
-    };
 
+        const formData = new FormData(e.target);
+        const {email, password} = Object.fromEntries(formData);
+
+        try{
+            await pocketbase.collection('users').authWithPassword(email, password);
+
+            onLogin();
+        }catch(err){
+            console.log(err);
+            toast.error(err.message);
+        }
+    };
 
     return(
         <div className="login">

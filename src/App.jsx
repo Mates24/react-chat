@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Detail from "./components/detail/Detail";
 import Chat from "./components/chat/Chat";
 import List from "./components/list/List";
@@ -6,7 +7,11 @@ import Notification from "./components/notification/Notification";
 import "./index.css";
 
 const App = () => {
-  const user = true;
+  const [user, setUser] = useState(false);
+
+  const handleLogin = () => {
+    setUser(true);
+  };
 
   return (
     <div className="container">
@@ -17,11 +22,11 @@ const App = () => {
           <Detail/>
         </>
       ) : (
-        <Login/>
+        <Login onLogin={handleLogin}/>
       )}
       <Notification/>
     </div>
   )
 }
   
-export default App
+export default App;

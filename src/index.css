@@ -18,7 +18,7 @@ body{
   justify-content: center;
   height: 100vh;
   color: #ededed;
-  background-image: url(../images/aurora-bg.jpg);
+  background-image: url(./aurora-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }

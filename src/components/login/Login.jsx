@@ -83,7 +83,7 @@ const Login = ({ onLogin }) => {
             <div className="item">
             <h2>Vytvoriť účet</h2>
                 <form onSubmit={handleRegister}>
-                    <label htmlFor="file"><img src={avatar.url || "../../public/avatar.png"} alt="" />Nahrať fotografiu</label>
+                    <label htmlFor="file"><img src={avatar.url || "./avatar.png"} alt="" />Nahrať fotografiu</label>
                     <input type="file" id="file" style={{display: "none"}} onChange={handleAvatar} name="avatar"/>
                     <input type="text" placeholder="Meno" name="username"/>
                     <input type="email" placeholder="Email" name="email"/>

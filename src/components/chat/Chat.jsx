@@ -20,16 +20,16 @@ const Chat = () => {
         <div className="chat">
             <div className="top">
                 <div className="user">
-                    <img src="../../images/avatar.png" alt="" />
+                    <img src="./avatar.png" alt="" />
                     <div className="texts">
                         <span>Mathias</span>
                         <p>Lorem ipsum dolor sit amet.</p>
                     </div>
                 </div>
                 <div className="icons">
-                    <img src="../../images/phone.png" alt="" />
-                    <img src="../../images/video.png" alt="" />
-                    <img src="../../images/info.png" alt="" />
+                    <img src="./phone.png" alt="" />
+                    <img src="./video.png" alt="" />
+                    <img src="./info.png" alt="" />
                 </div>
             </div>
             <div className="center">
@@ -41,7 +41,7 @@ const Chat = () => {
                     </div>
                 </div>
                 <div className="message">
-                    <img src="../../images/avatar.png" alt="" />
+                    <img src="./avatar.png" alt="" />
                     <div className="texts">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                             Debitis, corporis perferendis</p>
@@ -56,7 +56,7 @@ const Chat = () => {
                     </div>
                 </div>
                 <div className="message">
-                    <img src="../../images/avatar.png" alt="" />
+                    <img src="./avatar.png" alt="" />
                     <div className="texts">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                             Debitis, corporis perferendis</p>
@@ -67,13 +67,13 @@ const Chat = () => {
             </div>
             <div className="bottom">
                 <div className="icons">
-                    <img src="../../images/img.png" alt="" />
-                    <img src="../../images/camera.png" alt="" />
-                    <img src="../../images/mic.png" alt="" />
+                    <img src="./img.png" alt="" />
+                    <img src="./camera.png" alt="" />
+                    <img src="./mic.png" alt="" />
                 </div>
                 <input type="text" placeholder="Začnite písať..." value={text} onChange={(e) => setText(e.target.value)}/>
                 <div className="emoji">
-                    <img src="../../images/emoji.png" alt="" onClick={() => setOpen(prev => !prev)}/>
+                    <img src="./emoji.png" alt="" onClick={() => setOpen(prev => !prev)}/>
                     <div className="picker">
                         <EmojiPicker open={open} onEmojiClick={handleEmoji}/>
                     </div>

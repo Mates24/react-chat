@@ -2,16 +2,11 @@ import "./detail.css";
 import { pocketbase } from "../../lib/server";
 
 const Detail = () => {
-    const handleLogOut = async (e) => {
-        e.preventDefault();
-
-        
-    }
 
     return(
         <div className="detail">
             <div className="user">
-                <img src="../../public/avatar.png" alt="" />
+                <img src="./avatar.png" alt="" />
                 <h2>Mathias</h2>
                 <p>Lorem ipsum dolor sit amet.</p>
             </div>
@@ -19,19 +14,19 @@ const Detail = () => {
                 <div className="option">
                     <div className="title">
                         <span>Chat Settings</span>
-                        <img src="../../public/arrowUp.png" alt="" />
+                        <img src="./arrowUp.png" alt="" />
                     </div>
                 </div>
                 <div className="option">
                     <div className="title">
                         <span>Privacy & help</span>
-                        <img src="../../public/arrowUp.png" alt="" />
+                        <img src="./arrowUp.png" alt="" />
                     </div>
                 </div>
                 <div className="option">
                     <div className="title">
                         <span>Shared photos</span>
-                        <img src="../../public/arrowDown.png" alt="" />
+                        <img src="./arrowDown.png" alt="" />
                     </div>
                     <div className="photos">
                         <div className="photoItem">
@@ -39,32 +34,32 @@ const Detail = () => {
                                 <img src="" alt="" />
                                 <span>photo_2024__.png</span>
                             </div>
-                            <img src="../../public/download.png" alt="" className="icon"/>
+                            <img src="./download.png" alt="" className="icon"/>
                         </div>
                         <div className="photoItem">
                             <div className="photoDetail">
                                 <img src="" alt="" />
                                 <span>photo_2024__.png</span>
                             </div>
-                            <img src="../../public/download.png" alt="" className="icon"/>
+                            <img src="./download.png" alt="" className="icon"/>
                         </div>
                         <div className="photoItem">
                             <div className="photoDetail">
                                 <img src="" alt="" />
                                 <span>photo_2024__.png</span>
                             </div>
-                            <img src="../../public/download.png" alt="" className="icon"/>
+                            <img src="./download.png" alt="" className="icon"/>
                         </div>
                     </div>
                 </div>
                 <div className="option">
                     <div className="title">
                         <span>Shared files</span>
-                        <img src="../../public/arrowUp.png" alt="" />
+                        <img src="./arrowUp.png" alt="" />
                     </div>
                 </div>
                 <button>Block user</button>
-                <button className="logOut" onClick={handleLogOut}>Log Out</button>
+                <button className="logOut">Log Out</button>
             </div>
         </div>
     )

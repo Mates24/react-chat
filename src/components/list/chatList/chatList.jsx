@@ -9,34 +9,34 @@ const chatList = () => {
         <div className="chatList">
             <div className="search">
                 <div className="searchBar">
-                    <img src="../../../public/search.png" alt=""/>
+                    <img src="./search.png" alt=""/>
                     <input type="text" placeholder="Hľadať"/>
                 </div>
-                <img src={addMode ? "../../../public/minus.png" : "../../../public/plus.png"} alt="" className="add" onClick={() => setAddMode((prev) => !prev)}/>
+                <img src={addMode ? "./minus.png" : "./plus.png"} alt="" className="add" onClick={() => setAddMode((prev) => !prev)}/>
             </div>
             <div className="item">
-                <img src="../../../public/avatar.png" alt="" />
+                <img src="./avatar.png" alt="" />
                 <div className="texts">
                     <span>Mathias Matejčík</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
-                <img src="../../../public/avatar.png" alt="" />
+                <img src="./avatar.png" alt="" />
                 <div className="texts">
                     <span>Mathias Matejčík</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
-                <img src="../../../public/avatar.png" alt="" />
+                <img src="./avatar.png" alt="" />
                 <div className="texts">
                     <span>Mathias Matejčík</span>
                     <p>Hello</p>
                 </div>
             </div>
             <div className="item">
-                <img src="../../../public/avatar.png" alt="" />
+                <img src="./avatar.png" alt="" />
                 <div className="texts">
                     <span>Mathias Matejčík</span>
                     <p>Hello</p>

@@ -1,12 +1,12 @@
 .detail{
     flex: 1;
-    overflow-y: scroll;
 
     .user{
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 30px 20px;
+        justify-content: center;
+        height: 35%;
         border-bottom: 1px solid #dddddd35;
 
         img{
@@ -21,6 +21,8 @@
         flex-direction: column;
         gap: 15px;
         padding: 20px;
+        height: 65%;
+        overflow-y: scroll;
 
         .option{
 

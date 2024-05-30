@@ -1,7 +1,20 @@
 import "./detail.css";
 import { pocketbase } from "../../lib/server";
+import { toast } from "react-toastify";
 
-const Detail = () => {
+const Detail = ({ onLogout }) => {
+    const handleLogOut = async (e) => {
+        e.preventDefault();
+
+        try{
+            pocketbase.authStore.clear();
+
+            onLogout();
+        }catch(err){
+            console.log(err);
+            toast.error(err.message);
+        }
+    }
 
     return(
         <div className="detail">
@@ -59,7 +72,7 @@ const Detail = () => {
                     </div>
                 </div>
                 <button>Block user</button>
-                <button className="logOut">Log Out</button>
+                <button className="logOut" onClick={handleLogOut}>Log Out</button>
             </div>
         </div>
     )

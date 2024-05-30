@@ -12,6 +12,9 @@ const App = () => {
   const handleLogin = () => {
     setUser(true);
   };
+  const handleLogout = () => {
+    setUser(false);
+  };
 
   return (
     <div className="container">
@@ -19,7 +22,7 @@ const App = () => {
         <>
           <List/>
           <Chat/>
-          <Detail/>
+          <Detail onLogout={handleLogout}/>
         </>
       ) : (
         <Login onLogin={handleLogin}/>

@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "./login.css";
 import { pocketbase } from "../../lib/server";
 
 const Login = ({ onLogin }) => {
-    
-    try{
-        pocketbase.authStore.loadFromCookie(window.localStorage.getItem("auth"));
-        if(pocketbase.authStore.isValid) onLogin();
-    }catch(e){
-        console.log(e);
-    }
+    useEffect(() => {
+        try{
+            pocketbase.authStore.loadFromCookie(window.localStorage.getItem("auth"));
+            if(pocketbase.authStore.isValid) onLogin();
+        }catch(e){
+            console.log(e);
+        }
+    }, [onLogin]);
 
     const [avatar, setAvatar] = useState({
         file: null,

@@ -1,11 +1,45 @@
-import { useState } from "react";
-import AddUser from "./addUser/AddUser"
+import { useEffect, useState } from "react";
+import { pocketbase } from "../../../lib/server";
+import AddUser from "./addUser/AddUser";
 import "./chatList.css";
 
-const chatList = () => {
+const ChatList = () => {
+    const [chats, setChats] = useState([]);
     const [addMode, setAddMode] = useState(false);
 
-    return(
+    useEffect(() => {
+        const fetchChats = async () => {
+            try {
+                const currentUserId = pocketbase.authStore.model.id;
+                const userChats = await pocketbase.collection('userChats').getFullList({
+                    filter: `senderId = "${currentUserId}" || receiverId = "${currentUserId}"`,
+                    expand: 'receiverId,chats'
+                });
+                
+                const chatsWithReceiverName = userChats.map(userChat => {
+                    
+                    const receiver = userChat.expand.receiverId;
+                    const receiverImg = userChat.expand.receiverId.avatar;
+                    const url = receiver ? pocketbase.files.getUrl(receiver, receiverImg, {'thumb': '100x250'}) : null;
+
+                    return {
+                        ...userChat,
+                        receiverName: receiver.username,
+                        receiverImg: url
+                    };
+                });
+
+                setChats(chatsWithReceiverName);
+
+            } catch (err) {
+                console.error('Error fetching chats:', err);
+            }
+        };
+
+        fetchChats();
+    }, []);
+
+    return (
         <div className="chatList">
             <div className="search">
                 <div className="searchBar">
@@ -14,37 +48,18 @@ const chatList = () => {
                 </div>
                 <img src={addMode ? "./minus.png" : "./plus.png"} alt="" className="add" onClick={() => setAddMode((prev) => !prev)}/>
             </div>
-            <div className="item">
-                <img src="./avatar.png" alt="" />
-                <div className="texts">
-                    <span>Mathias Matejčík</span>
-                    <p>Hello</p>
+            {chats.map(chat => (
+                <div key={chat.id} className="item">
+                    <img src={chat.receiverImg || "./avatar.png"} alt="" />
+                    <div className="texts">
+                        <span>{chat.receiverName}</span>
+                        <p>{chat.chats.messages}</p>
+                    </div>
                 </div>
-            </div>
-            <div className="item">
-                <img src="./avatar.png" alt="" />
-                <div className="texts">
-                    <span>Mathias Matejčík</span>
-                    <p>Hello</p>
-                </div>
-            </div>
-            <div className="item">
-                <img src="./avatar.png" alt="" />
-                <div className="texts">
-                    <span>Mathias Matejčík</span>
-                    <p>Hello</p>
-                </div>
-            </div>
-            <div className="item">
-                <img src="./avatar.png" alt="" />
-                <div className="texts">
-                    <span>Mathias Matejčík</span>
-                    <p>Hello</p>
-                </div>
-            </div>
-            {addMode && <AddUser/>}
+            ))}
+            {addMode && <AddUser />}
         </div>
-    )
-}
+    );
+};
 
-export default chatList;
+export default ChatList;

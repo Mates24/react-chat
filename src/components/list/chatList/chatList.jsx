@@ -13,20 +13,39 @@ const ChatList = () => {
                 const currentUserId = pocketbase.authStore.model.id;
                 const userChats = await pocketbase.collection('userChats').getFullList({
                     filter: `senderId = "${currentUserId}" || receiverId = "${currentUserId}"`,
-                    expand: 'receiverId,chats'
+                    expand: 'senderId,receiverId,chats'
                 });
                 
+                
                 const chatsWithReceiverName = userChats.map(userChat => {
+                    const receiverId = userChat.expand.receiverId.id;
+                    let receiver;
+                    let receiverImg;
+                    let url;
                     
-                    const receiver = userChat.expand.receiverId;
-                    const receiverImg = userChat.expand.receiverId.avatar;
-                    const url = receiver ? pocketbase.files.getUrl(receiver, receiverImg, {'thumb': '100x250'}) : null;
+                    if(currentUserId !== receiverId){
+                        receiver = userChat.expand.receiverId;
+                        receiverImg = receiver.avatar;
+                        url = receiver ? pocketbase.files.getUrl(receiver, receiverImg, {'thumb': '100x250'}) : null;
+    
+                        console.log(chats);
+                        return {
+                            ...userChat,
+                            receiverName: receiver.username,
+                            receiverImg: url
+                        };
+                    }else if(currentUserId === receiverId){  
+                        receiver = userChat.expand.senderId;
+                        receiverImg = receiver.avatar;
+                        url = receiver ? pocketbase.files.getUrl(receiver, receiverImg, {'thumb': '100x250'}) : null;
 
-                    return {
-                        ...userChat,
-                        receiverName: receiver.username,
-                        receiverImg: url
-                    };
+                        return {
+                            ...userChat,
+                            receiverName: receiver.username,
+                            receiverImg: url
+                        };
+                    }
+
                 });
 
                 setChats(chatsWithReceiverName);

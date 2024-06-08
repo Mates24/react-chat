@@ -28,7 +28,6 @@ const ChatList = () => {
                         receiverImg = receiver.avatar;
                         url = receiver ? pocketbase.files.getUrl(receiver, receiverImg, {'thumb': '100x250'}) : null;
     
-                        console.log(chats);
                         return {
                             ...userChat,
                             receiverName: receiver.username,

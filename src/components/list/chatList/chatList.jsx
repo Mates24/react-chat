@@ -57,6 +57,12 @@ const ChatList = () => {
         fetchChats();
     }, []);
 
+    const handleSelect = async (chat) => {
+        const record = await pocketbase.collection('userChats').getOne(chat);
+        localStorage.setItem('selectedChat', JSON.stringify(record));
+        window.dispatchEvent(new Event('storage'));
+    };
+
     return (
         <div className="chatList">
             <div className="search">
@@ -67,7 +73,7 @@ const ChatList = () => {
                 <img src={addMode ? "./minus.png" : "./plus.png"} alt="" className="add" onClick={() => setAddMode((prev) => !prev)}/>
             </div>
             {chats.map(chat => (
-                <div key={chat.id} className="item">
+                <div key={chat.id} className="item" onClick={() => handleSelect(chat.id)}>
                     <img src={chat.receiverImg || "./avatar.png"} alt="" />
                     <div className="texts">
                         <span>{chat.receiverName}</span>

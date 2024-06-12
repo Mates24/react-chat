@@ -9,6 +9,8 @@ const Detail = ({ onLogout }) => {
         try{
             pocketbase.authStore.clear();
 
+            localStorage.setItem('selectedChat', "");
+
             onLogout();
         }catch(err){
             console.log(err);

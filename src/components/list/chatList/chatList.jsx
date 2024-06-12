@@ -22,26 +22,31 @@ const ChatList = () => {
                     let receiver;
                     let receiverImg;
                     let url;
+                    let chat;
                     
                     if(currentUserId !== receiverId){
                         receiver = userChat.expand.receiverId;
                         receiverImg = receiver.avatar;
                         url = receiver ? pocketbase.files.getUrl(receiver, receiverImg, {'thumb': '100x250'}) : null;
+                        chat = userChat.expand.chats.messages[userChat.expand.chats.messages.length - 1];
     
                         return {
                             ...userChat,
                             receiverName: receiver.username,
-                            receiverImg: url
+                            receiverImg: url,
+                            lastMessage: chat.text
                         };
                     }else if(currentUserId === receiverId){  
                         receiver = userChat.expand.senderId;
                         receiverImg = receiver.avatar;
                         url = receiver ? pocketbase.files.getUrl(receiver, receiverImg, {'thumb': '100x250'}) : null;
+                        chat = userChat.expand.chats.messages[userChat.expand.chats.messages.length - 1];
 
                         return {
                             ...userChat,
                             receiverName: receiver.username,
-                            receiverImg: url
+                            receiverImg: url,
+                            lastMessage: chat.text
                         };
                     }
 
@@ -77,7 +82,7 @@ const ChatList = () => {
                     <img src={chat.receiverImg || "./avatar.png"} alt="" />
                     <div className="texts">
                         <span>{chat.receiverName}</span>
-                        <p>{chat.chats.messages}</p>
+                        <p>{chat.lastMessage}</p>
                     </div>
                 </div>
             ))}

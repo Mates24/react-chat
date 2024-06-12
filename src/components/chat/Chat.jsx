@@ -61,7 +61,7 @@ const Chat = () => {
 
                 setReceiverName(receiver.username);
                 setReceiverImg(imgUrl);
-                
+
             }else if(currentUserId === chatId.senderId){
                 const receiver = await pocketbase.collection('users').getOne(chatId.receiverId);
                 const receiverImg = receiver.avatar;
@@ -136,7 +136,7 @@ const Chat = () => {
         <div className="chat">
             <div className="top">
                 <div className="user">
-                    <img src="./avatar.png" alt="" />
+                    <img src={receiverImg ? receiverImg : "./avatar.png"} alt="" />
                     <div className="texts">
                         <span>{receiverName}</span>
                     </div>

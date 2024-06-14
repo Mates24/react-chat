@@ -29,7 +29,6 @@ const Chat = () => {
                 setUserChat(storedUserChat.chats);
                 fetchChatMessages(storedUserChat.chats);
                 fetchReceiverInfo(storedUserChat);
-                console.log(receiverName);
             }
         };
 

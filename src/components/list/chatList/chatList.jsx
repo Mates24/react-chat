@@ -30,24 +30,42 @@ const ChatList = () => {
                         url = receiver ? pocketbase.files.getUrl(receiver, receiverImg, {'thumb': '100x250'}) : null;
                         chat = userChat.expand.chats.messages[userChat.expand.chats.messages.length - 1];
     
-                        return {
-                            ...userChat,
-                            receiverName: receiver.username,
-                            receiverImg: url,
-                            lastMessage: chat.text
-                        };
+                       if(chat){
+                            return {
+                                ...userChat,
+                                receiverName: receiver.username,
+                                receiverImg: url,
+                                lastMessage: chat.text
+                            };
+                                
+                       }else{
+                            return {
+                                ...userChat,
+                                receiverName: receiver.username,
+                                receiverImg: url,
+                            };
+                       };
+
                     }else if(currentUserId === receiverId){  
                         receiver = userChat.expand.senderId;
                         receiverImg = receiver.avatar;
                         url = receiver ? pocketbase.files.getUrl(receiver, receiverImg, {'thumb': '100x250'}) : null;
                         chat = userChat.expand.chats.messages[userChat.expand.chats.messages.length - 1];
 
-                        return {
-                            ...userChat,
-                            receiverName: receiver.username,
-                            receiverImg: url,
-                            lastMessage: chat.text
-                        };
+                        if(chat){
+                            return {
+                                ...userChat,
+                                receiverName: receiver.username,
+                                receiverImg: url,
+                                lastMessage: chat.text
+                            };
+                        }else{
+                            return {
+                                ...userChat,
+                                receiverName: receiver.username,
+                                receiverImg: url,
+                            };
+                        }
                     }
 
                 });

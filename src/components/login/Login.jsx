@@ -39,14 +39,8 @@ const Login = ({ onLogin }) => {
             "name": username,
             "userChats": []
         };
-        const userChatsData = {
-            "chats": []
-        }
-
         try{
             const record = await pocketbase.collection('users').create(data);
-            await pocketbase.collection('userChats').create(userChatsData);
-
             toast.success("Registrácia bola úspešná!");
         }catch(err){
             console.log(err);

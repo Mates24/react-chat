@@ -22,7 +22,7 @@ const Chat = () => {
     const endRef = useRef(null);
 
     useEffect(() => {
-        const updateChatFromStorage = async () => {
+        const updateChatFromStorage = () => {
             const storedUserChat = JSON.parse(localStorage.getItem('selectedChat'));
 
             if (storedUserChat) {
